@@ -24,7 +24,23 @@
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
-        <p class="hint">💡 Hint: What happens if you ask the database a question that's always true?</p>
+        <div id="hints">
+    <p class="hint" id="hint1" style="display:none">💡 Hint 1: What happens if you put a single quote <code>'</code> in the username field?</p>
+    <p class="hint" id="hint2" style="display:none">💡 Hint 2: SQL queries can be commented out using <code>--</code></p>
+    <p class="hint" id="hint3" style="display:none">💡 Hint 3: Try making the WHERE condition always true using <code>OR</code></p>
+    <button onclick="showHint()" style="margin-top:10px; background:#0f3460; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer">Get a Hint</button>
+</div>
+
+<script>
+    let currentHint = 0;
+    const hints = ['hint1', 'hint2', 'hint3'];
+    function showHint() {
+        if (currentHint < hints.length) {
+            document.getElementById(hints[currentHint]).style.display = 'block';
+            currentHint++;
+        }
+    }
+</script>
     </div>
 </body>
 </html>
