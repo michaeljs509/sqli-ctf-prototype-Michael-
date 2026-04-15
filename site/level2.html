@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Enhanced Security</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="level2">
+    <main class="shell">
+        <section class="panel">
+            <p class="eyebrow">Stage 2</p>
+            <h1>🏦 SecureBank</h1>
+            <div class="taunt">
+                😎 Good try... I know you're using SQL injection.<br><br>
+                But I'm smarter now. I've patched your trick.<br><br>
+                <strong>Let's see what else you've got.</strong>
+            </div>
+
+            <form id="challenge-form" class="challenge-form" novalidate>
+                <label class="field">
+                    <span>Username</span>
+                    <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+                </label>
+                <label class="field">
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="Password" required>
+                </label>
+                <button type="submit">Try Again</button>
+            </form>
+
+            <p id="error-message" class="message error" hidden></p>
+
+            <section class="hint-box">
+                <button id="hint-button" class="secondary-button" type="button">Get a Hint</button>
+                <p class="message hint" data-hint hidden>💡 Hint 1: The filter is blocking a specific keyword. What other SQL syntax lets you ignore the rest of a query?</p>
+                <p class="message hint" data-hint hidden>💡 Hint 2: SQL has a way to <em>comment out</em> everything after a certain point.</p>
+                <p class="message hint" data-hint hidden>💡 Hint 3: Try entering a known username followed by <code>'--</code>.</p>
+            </section>
+        </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

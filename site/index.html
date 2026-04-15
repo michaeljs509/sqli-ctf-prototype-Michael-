@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank Login</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="level1">
+    <main class="shell">
+        <section class="panel">
+            <p class="eyebrow">GitHub Pages edition</p>
+            <h1>🏦 SecureBank</h1>
+            <p class="subtitle">Employee Portal Login</p>
+
+            <form id="challenge-form" class="challenge-form" novalidate>
+                <label class="field">
+                    <span>Username</span>
+                    <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+                </label>
+                <label class="field">
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="Password" required>
+                </label>
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="error-message" class="message error" hidden></p>
+
+            <section class="hint-box">
+                <button id="hint-button" class="secondary-button" type="button">Get a Hint</button>
+                <p class="message hint" data-hint hidden>💡 Hint 1: What happens if you put a single quote <code>'</code> in the username field?</p>
+                <p class="message hint" data-hint hidden>💡 Hint 2: SQL queries can be commented out using <code>--</code>.</p>
+                <p class="message hint" data-hint hidden>💡 Hint 3: Try making the WHERE condition always true with <code>OR</code>.</p>
+            </section>
+        </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
