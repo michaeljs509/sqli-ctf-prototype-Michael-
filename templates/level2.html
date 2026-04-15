@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureBank - Enhanced Security</title>
+    <style>
+        body { font-family: Arial; background: #1a1a2e; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { background: #16213e; padding: 40px; border-radius: 8px; width: 340px; }
+        h2 { text-align: center; color: #e94560; }
+        .taunt { background: #0f3460; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9em; color: #00ff88; text-align: center; }
+        input { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border-radius: 4px; border: none; }
+        button { width: 100%; padding: 10px; background: #e94560; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .error { color: #ff6b6b; font-size: 0.9em; margin-top: 10px; }
+        .hint { color: #aaa; font-size: 0.8em; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🏦 SecureBank</h2>
+        <div class="taunt">
+            😎 Good try... I know you're using SQL injection.<br><br>
+            But I'm smarter now. I've patched your trick.<br><br>
+            <strong>Let's see what else you've got.</strong>
+        </div>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Try Again</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <div id="hints">
+            <p class="hint" id="hint1" style="display:none">💡 Hint 1: The filter is blocking a specific keyword. What other SQL syntax lets you ignore the rest of a query?</p>
+            <p class="hint" id="hint2" style="display:none">💡 Hint 2: SQL has a way to <em>comment out</em> everything after a certain point...</p>
+            <p class="hint" id="hint3" style="display:none">💡 Hint 3: Try entering a known username followed by <code>'--</code></p>
+            <button onclick="showHint()" style="margin-top:10px; background:#0f3460; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer">Get a Hint</button>
+        </div>
+    </div>
+
+    <script>
+        let currentHint = 0;
+        const hints = ['hint1', 'hint2', 'hint3'];
+        function showHint() {
+            if (currentHint < hints.length) {
+                document.getElementById(hints[currentHint]).style.display = 'block';
+                currentHint++;
+            }
+        }
+    </script>
+</body>
+</html>
